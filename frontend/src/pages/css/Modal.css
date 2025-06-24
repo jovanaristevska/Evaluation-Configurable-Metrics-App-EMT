@@ -1,0 +1,70 @@
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.priority-metric-card {
+    padding: 10px;
+    margin: 5px 0;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    cursor: grab;
+}
+
+.priority-list {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.priority-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    margin-bottom: 8px;
+}
+
+.priority-item-name {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.move-buttons button {
+    background: #e7e7e7;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 4px 10px;
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.move-buttons button:hover:not(:disabled) {
+    background: #dcdcdc;
+}
+
+.move-buttons button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.metric-card-2{
+    cursor: pointer;
+}

@@ -1,0 +1,111 @@
+.success-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.success-actions {
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 900px) {
+    .metrics-grid, .metrics-evaluation {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .important-metric {
+        grid-column: span 3;
+    }
+}
+
+@media (max-width: 700px) {
+    .metrics-grid, .metrics-evaluation {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .important-metric {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .metrics-grid, .metrics-evaluation {
+        grid-template-columns: 1fr;
+    }
+
+    .important-metric {
+        grid-column: span 1;
+    }
+}
+
+.question-answer-section {
+    margin-bottom: 1.5rem;
+    background-color: white;
+    border-radius: 6px;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.question-container, .answer-container {
+    margin-bottom: 1rem;
+}
+
+.question-container h3, .answer-container h3 {
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.question-container p, .answer-container p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    white-space: pre-wrap;
+}
+
+.answer-container {
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+}
+
+body, .app-content, .create-workspace-container, .evaluation-container {
+    font-size: 0.85rem;
+}
+
+.metric-card, .metric-evaluation-card {
+    font-size: 0.7rem;
+    padding: 0.3rem;
+}
+
+.metric-card h4, .metric-evaluation-card h3 {
+    font-size: 0.8rem;
+}
+
+.metric-card p, .metric-evaluation-card p {
+    font-size: 0.65rem;
+}
+
+.metrics-grid, .metrics-evaluation {
+    gap: 0.25rem;
+}
+
+.form-group input, textarea {
+    font-size: 0.85rem;
+    padding: 0.3rem;
+}
+
+.create-workspace-container {
+    width: 800px;
+    min-width: 800px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.evaluation-container, .evaluation-container * {
+    box-sizing: border-box;
+}
