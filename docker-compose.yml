@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:17.4
+    restart: always
+    environment:
+      POSTGRES_USER: core
+      POSTGRES_PASSWORD: core
+      POSTGRES_DB: evaluation_platform
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./01_init.sql:/docker-entrypoint-initdb.d/01_init.sql
+      - ./02_data.sql:/docker-entrypoint-initdb.d/02_data.sql
+    ports:
+      - 15432:5432
+volumes:
+  pgdata:
