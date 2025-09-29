@@ -27,10 +27,18 @@ public class Metric {
     @Column(columnDefinition = "text")
     private String description;
 
-    public Metric(String name, Double minValue, Double maxValue, String description) {
+    @Column(columnDefinition = "text")
+    private String domain;
+
+    @Column(columnDefinition = "text")
+    private String type;
+
+    public Metric(String name, Double minValue, Double maxValue, String description, String domain, String type) {
         this.name = name;
         this.minValue = minValue;
         this.maxValue = maxValue;
         this.description = description;
+        this.domain = domain;
+        this.type = type;
     }
 }

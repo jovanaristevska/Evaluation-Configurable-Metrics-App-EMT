@@ -1,14 +1,177 @@
+/*.evaluation-container {*/
+/*    max-width: 900px;*/
+/*    width: 100%;*/
+/*    margin: 0 auto;*/
+/*    border: 1.5px solid #ccc;*/
+/*    background-color: #f5f5f5;*/
+/*    border-radius: 8px;*/
+/*    padding: 24px;*/
+/*    box-shadow: 0 2px 8px rgba(0,0,0,0.04);*/
+/*}*/
+
+/*.metrics-evaluation {*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(4, 1fr);*/
+/*    gap: 0.5rem;*/
+/*    margin-bottom: 1rem;*/
+/*}*/
+
+/*.metric-evaluation-card {*/
+/*    background-color: white;*/
+/*    border-radius: 5px;*/
+/*    padding: 0.5rem;*/
+/*    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);*/
+/*    font-size: 0.8rem;*/
+/*}*/
+
+/*.metric-evaluation-card h3 {*/
+/*    margin-top: 0;*/
+/*    margin-bottom: 0.2rem;*/
+/*    font-size: 0.9rem;*/
+/*}*/
+
+/*.metric-evaluation-card p {*/
+/*    margin-top: 0;*/
+/*    margin-bottom: 0.3rem;*/
+/*    font-size: 0.7rem;*/
+/*    line-height: 1.1;*/
+/*    color: #555;*/
+/*    max-height: 2.2em;*/
+/*    overflow: hidden;*/
+/*}*/
+
+/*.rating-scale {*/
+/*    margin-top: 0.3rem;*/
+/*}*/
+
+/*.binary-scale, .numeric-scale {*/
+/*    display: flex;*/
+/*    gap: 0.3rem;*/
+/*    flex-wrap: wrap;*/
+/*}*/
+
+/*.binary-scale label, .numeric-scale label {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    gap: 0.15rem;*/
+/*    cursor: pointer;*/
+/*    font-size: 0.75rem;*/
+/*}*/
+
+/*textarea {*/
+/*    width: 100%;*/
+/*    padding: 0.6rem;*/
+/*    border: 1px solid #ddd;*/
+/*    border-radius: 4px;*/
+/*    font-family: inherit;*/
+/*    font-size: 0.95rem;*/
+/*    resize: vertical;*/
+/*}*/
+
+/*.important-metric {*/
+/*    grid-column: span 4;*/
+/*    border-left: 3px solid #e74c3c;*/
+/*    background-color: #fef9f9;*/
+/*}*/
+
+/*.importance-badge {*/
+/*    display: inline-block;*/
+/*    padding: 2px 5px;*/
+/*    background-color: #e74c3c;*/
+/*    color: white;*/
+/*    border-radius: 3px;*/
+/*    font-size: 0.7rem;*/
+/*    margin-bottom: 6px;*/
+/*}*/
+
+/*.auto-fill-toggle {*/
+/*    margin: 12px 0;*/
+/*    padding: 6px 8px;*/
+/*    background-color: #f8f9fa;*/
+/*    border-radius: 4px;*/
+/*    font-size: 0.85rem;*/
+/*}*/
+
+/*.disabled-metric {*/
+/*    opacity: 0.7;*/
+/*    position: relative;*/
+/*}*/
+
+/*.disabled-metric::before {*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    bottom: 0;*/
+/*    background: rgba(255, 255, 255, 0.7);*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    font-size: 0.7rem;*/
+/*    color: #e74c3c;*/
+/*    font-weight: bold;*/
+/*    z-index: 1;*/
+/*    border-radius: 5px;*/
+/*    text-align: center;*/
+/*    padding: 0 5px;*/
+/*}*/
+
+/*label.disabled {*/
+/*    opacity: 0.5;*/
+/*    cursor: not-allowed;*/
+/*}*/
+
+/* === Main Container (Unchanged) === */
 .evaluation-container {
     max-width: 900px;
     width: 100%;
-    margin: 0 auto;
-    border: 1.5px solid #ccc;
-    background-color: #f5f5f5;
+    margin: 2rem auto; /* Added a bit more vertical margin for spacing */
+    border: 1px solid #e0e0e0;
+    background-color: #f9f9f9;
     border-radius: 8px;
     padding: 24px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
+/* --- START: NEW AND UPDATED STYLES --- */
+
+/* Wrapper for the Q&A section */
+.question-answer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Space between the cards */
+    margin-bottom: 2rem; /* Space before the metrics */
+}
+
+/* Individual cards for Question, Answer, and Model */
+.question-container,
+.answer-container {
+    background-color: #ffffff;
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    border: 1px solid #eeeeee;
+}
+
+.question-container h3,
+.answer-container h3 {
+    font-size: 0.85rem;
+    color: #888;
+    text-transform: uppercase;
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+}
+
+.question-container p,
+.answer-container p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+    margin: 0;
+}
+/* --- END: NEW AND UPDATED STYLES --- */
+
+
+/* === Metrics Grid & Cards (Unchanged) === */
 .metrics-evaluation {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -40,6 +203,7 @@
     overflow: hidden;
 }
 
+/* === Rating Scales (Unchanged) === */
 .rating-scale {
     margin-top: 0.3rem;
 }
@@ -58,6 +222,7 @@
     font-size: 0.75rem;
 }
 
+/* === Textarea (Unchanged) === */
 textarea {
     width: 100%;
     padding: 0.6rem;
@@ -68,6 +233,7 @@ textarea {
     resize: vertical;
 }
 
+/* === Important & Disabled States (Unchanged) === */
 .important-metric {
     grid-column: span 4;
     border-left: 3px solid #e74c3c;
@@ -120,4 +286,3 @@ label.disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
-

@@ -1,0 +1,22 @@
+
+
+[
+  {
+    "id": 8,
+    "name": "Relevance",
+    "description": "Measure of task relevance",
+    "scale": "1-5"
+  },
+  {
+    "id": 3,
+    "name": "Clarity",
+    "description": "Clarity of the task",
+    "scale": "1-5"
+  },
+  {
+    "id": 1,
+    "name": "Accuracy",
+    "description": "Accuracy of answers",
+    "scale": "0-1"
+  }
+]

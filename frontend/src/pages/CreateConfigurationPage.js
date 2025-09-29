@@ -2,16 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import MainLayout from '../components/layout/MainLayout';
 import './css/Modal.css';
+import './css/CreateConfigurationPage.css';
 
 const CreateConfigurationPage = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const { workspaceName } = location.state || {};
+   // const { workspaceName } = location.state || {};
 
     const [metrics, setMetrics] = useState([]);
     const [selectedMetrics, setSelectedMetrics] = useState({});
     const [showModal, setShowModal] = useState(false);
-    const [priorityOrder, setPriorityOrder] = useState([]);
+    const [priorityOrder, setPriorityOrder] = useState([])
+
+    const { workspaceName, importedData: importedDataFromState } = location.state || {};
+    const [importedData, setImportedData] = useState(importedDataFromState || null);
+
 
     useEffect(() => {
         fetch('/api/metrics')
@@ -77,7 +82,8 @@ const CreateConfigurationPage = () => {
                 body: JSON.stringify({
                     workspaceName,
                     configurationName: `${workspaceName}-config`,
-                    metrics: orderedMetrics
+                    metrics: orderedMetrics,
+                    entries: importedData.entries
                 })
             });
 

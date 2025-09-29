@@ -1,36 +1,296 @@
+/*.landing-container {*/
+/*    max-width: 800px;*/
+/*    align-content: center;*/
+/*    margin: auto;*/
+/*    height: 300px;*/
+/*    border: 1.5px solid #ccc;*/
+/*    background-color: #f5f5f5;*/
+/*    border-radius: 8px;*/
+/*    padding: 24px;*/
+/*    box-shadow: 0 2px 8px rgba(0,0,0,0.04);*/
+
+/*}*/
+
+/*.workspace-options {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    gap: 1.5rem;*/
+/*    margin-top: 2rem;*/
+/*}*/
+
+/*.option-card {*/
+/*    background-color: white;*/
+/*    border-radius: 6px;*/
+/*    padding: 1.5rem;*/
+/*    width: 280px;*/
+/*    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);*/
+/*    transition: transform 0.3s ease;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.option-card:hover {*/
+/*    transform: translateY(-5px);*/
+/*}*/
+
+/*button {*/
+/*    padding: 0.6rem 1.2rem;*/
+/*    border-radius: 4px;*/
+/*    border: none;*/
+/*    font-weight: bold;*/
+/*    cursor: pointer;*/
+/*    margin-top: 0.75rem;*/
+/*}*/
+
+/*.primary-button {*/
+/*    background-color: #3498db;*/
+/*    color: white;*/
+/*}*/
+
+/*.secondary-button {*/
+/*    background-color: #ecf0f1;*/
+/*    color: #2c3e50;*/
+/*    border: 1px solid #bdc3c7;*/
+/*}*/
+
+/*!**!*/
+
+/*.instruction-text {*/
+/*    font-size: 1.15rem;*/
+/*    font-weight: 500;*/
+/*    color: #2c3e50; !* A sophisticated, dark blue-gray *!*/
+/*    text-align: center;*/
+/*    margin-bottom: 1.5rem;*/
+/*    line-height: 1.6;*/
+/*    letter-spacing: 0.5px; !* Adds a bit of breathing room *!*/
+/*}*/
+
+/*!*.import-button {*!*/
+/*!*    padding: 0.75rem 1.5rem;*!*/
+/*!*    font-size: 1rem;*!*/
+/*!*    font-weight: 500;*!*/
+/*!*    border-radius: 8px;*!*/
+/*!*    !* Add other primary button styles *!*!*/
+/*!*}*!*/
+
+/*.import-button {*/
+/*    border: none;*/
+/*    padding: 0.6rem 1.2rem;*/
+/*    font-size: 0.9rem;*/
+/*    font-weight: 500;*/
+/*    background-color: #3498db;*/
+/*    color: white;*/
+/*    border-radius: 6px;*/
+/*    cursor: pointer;*/
+/*    transition: all 0.2s ease;*/
+/*    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);*/
+/*}*/
+
+/*.import-button:hover {*/
+/*    background-color: #2980b9;*/
+/*    transform: translateY(-2px);*/
+/*    box-shadow: 0 6px 16px rgba(52, 152, 219, 0.3);*/
+/*}*/
+
+
+/*.import-section {*/
+/*    !* --- Add these three lines --- *!*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*    !* --------------------------- *!*/
+
+/*    !* Your existing styles can remain *!*/
+/*    !* For example: *!*/
+/*    margin-bottom: 2rem;*/
+/*}*/
+
+
+/* =================================== */
+/* === Styles for LandingPage.js === */
+/* =================================== */
+
 .landing-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    min-height: 70vh;
+}
+
+.landing-options {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.landing-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 2rem;
+    width: 320px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid #e9ecef;
+    display: flex;
+    flex-direction: column;
+}
+
+.landing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.landing-card h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin: 0 0 0.5rem; /* Removed top margin */
+}
+
+.landing-card p {
+    color: #7f8c8d;
+    font-size: 1rem;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+}
+
+.landing-card .primary-button,
+.landing-card .secondary-button {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+}
+
+
+/* ========================================= */
+/* === Styles for ChooseWorkspacePage.js === */
+/* ========================================= */
+
+/*.choose-container {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    padding: 2rem;*/
+/*    min-height: 70vh;*/
+/*    gap: 3rem;*/
+/*}*/
+
+/*.import-section {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*    gap: 1rem;*/
+/*    text-align: center;*/
+/*}*/
+
+/*.instruction-text {*/
+/*    font-size: 1.25rem;*/
+/*    color: #34495e;*/
+/*}*/
+
+/*.choose-options {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    gap: 1.5rem;*/
+/*}*/
+
+/*.choose-card {*/
+/*    background-color: white;*/
+/*    border-radius: 6px;*/
+/*    padding: 1.5rem;*/
+/*    width: 280px;*/
+/*    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);*/
+/*    transition: transform 0.3s ease;*/
+/*    cursor: pointer;*/
+/*    display: flex; !* Added for centering *!*/
+/*    align-items: center; !* Added for centering *!*/
+/*    justify-content: center; !* Added for centering *!*/
+/*}*/
+
+/*.choose-card:hover {*/
+/*    transform: translateY(-5px);*/
+/*}*/
+
+/*.choose-card .primary-button {*/
+/*    width: 100%; !* Make button fill the card *!*/
+/*}*/
+
+
+
+.choose-container {
     max-width: 800px;
     align-content: center;
     margin: auto;
-    height: 300px;
+    height: 350px;
     border: 1.5px solid #ccc;
     background-color: #f5f5f5;
     border-radius: 8px;
     padding: 24px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-
 }
 
-.workspace-options {
+.choose-options {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
     margin-top: 2rem;
 }
 
-.option-card {
+/*.choose-card {*/
+/*    background-color: white;*/
+/*    border-radius: 6px;*/
+/*    padding: 1.5rem;*/
+/*    width: 280px;*/
+/*    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);*/
+/*    transition: transform 0.3s ease;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.choose-card:hover {*/
+/*    transform: translateY(-5px);*/
+/*}*/
+
+/* Keep your existing styles for .choose-container, .choose-options, etc. */
+
+/* === UPDATED Card Styling for ChooseWorkspacePage === */
+.choose-card {
     background-color: white;
-    border-radius: 6px;
-    padding: 1.5rem;
+    border-radius: 8px; /* Slightly larger radius */
+    padding: 2rem; /* More padding for a better feel */
     width: 280px;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
     cursor: pointer;
+
+    /* Use flexbox to center the text perfectly */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    border: 1px solid #e9ecef;
 }
 
-.option-card:hover {
-    transform: translateY(-5px);
+.choose-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-color: #3498db; /* Add a colored border on hover */
 }
+
+/* === NEW: Style for the text inside the card === */
+.card-action-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #3498db; /* Use the primary action color for the text */
+    line-height: 1.5;
+}
+
+/* You can now remove the generic 'button' and '.primary-button' styles if they are no longer needed elsewhere */
+
 
 button {
     padding: 0.6rem 1.2rem;
@@ -51,3 +311,54 @@ button {
     color: #2c3e50;
     border: 1px solid #bdc3c7;
 }
+
+.instruction-text {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #2c3e50; /* A sophisticated, dark blue-gray */
+    text-align: center;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    letter-spacing: 0.5px; /* Adds a bit of breathing room */
+}
+
+/*.import-button {*/
+/*    padding: 0.75rem 1.5rem;*/
+/*    font-size: 1rem;*/
+/*    font-weight: 500;*/
+/*    border-radius: 8px;*/
+/*    !* Add other primary button styles *!*/
+/*}*/
+
+.import-button {
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background-color: #3498db;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+}
+
+.import-button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(52, 152, 219, 0.3);
+}
+
+
+.import-section {
+    /* --- Add these three lines --- */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* --------------------------- */
+
+    /* Your existing styles can remain */
+    /* For example: */
+    margin-bottom: 2rem;
+}
+
