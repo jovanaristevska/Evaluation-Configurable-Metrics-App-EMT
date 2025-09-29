@@ -7,7 +7,6 @@ import './css/CreateConfigurationPage.css';
 const CreateConfigurationPage = () => {
     const location = useLocation();
     const navigate = useNavigate();
-   // const { workspaceName } = location.state || {};
 
     const [metrics, setMetrics] = useState([]);
     const [selectedMetrics, setSelectedMetrics] = useState({});

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import MainLayout from "../components/layout/MainLayout";
-import '../App.css'; // Use the global stylesheet
+import '../App.css';
 
 const GenerateWorkspacePage = () => {
     const navigate = useNavigate();
@@ -12,8 +12,7 @@ const GenerateWorkspacePage = () => {
         { id: 'workspaceName', label: 'Workspace Name', type: 'text', placeholder: 'e.g., Support Bot Accuracy Test' },
         { id: 'description', label: 'Evaluation Goal / Description', type: 'text', placeholder: "e.g., 'Check for politeness and factual accuracy'" },
         { id: 'type', label: 'Type', type: 'text', placeholder: "e.g., 'Conversational AI'" },
-        { id: 'domain', label: 'Domain', type: 'text', placeholder: "e.g., 'E-commerce Customer Support'" },
-        { id: 'language', label: 'Language', type: 'text', placeholder: "e.g., 'English'" }
+        { id: 'domain', label: 'Domain', type: 'text', placeholder: "e.g., 'E-commerce Customer Support'" }
     ];
 
     const initialFormData = formFields.reduce((acc, field) => {
