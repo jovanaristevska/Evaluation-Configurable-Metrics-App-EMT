@@ -10,7 +10,9 @@
     justify-content: center;
     align-items: center;
     padding: 2rem;
-    min-height: 70vh;
+    /*min-height: 70vh;*/
+    min-height: auto !important;
+    padding: 0 !important;
 }
 
 .landing-options {

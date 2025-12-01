@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import MainLayout from '../components/layout/MainLayout';
+import CreateConfigurationPage from './CreateConfigurationPage'; // IMPORT THE COMPONENT
 import './css/CreateWorkspacePage.css';
 import '../App.css';
 
@@ -21,6 +22,9 @@ const CreateWorkspacePage = () => {
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [allAvailableMetrics, setAllAvailableMetrics] = useState([]);
     const [editingMetrics, setEditingMetrics] = useState([]);
+
+    // NEW STATE for the Create Config Modal
+    const [isCreateConfigModalOpen, setIsCreateConfigModalOpen] = useState(false);
 
     useEffect(() => {
         fetch('/api/configurations')
@@ -73,7 +77,12 @@ const CreateWorkspacePage = () => {
         if (!createdWorkspace) return;
         setShowSuccessModal(false);
         const metricsForEval = createdWorkspace.configuration?.metrics || metrics;
-        navigate('/evaluate', { state: { workspace: createdWorkspace, selectedMetrics: formatMetricsForEvaluation(metricsForEval) } });
+        navigate('/evaluate', {
+            state: {
+                workspace: createdWorkspace,
+                selectedMetrics: formatMetricsForEvaluation(metricsForEval)
+            }
+        });
     };
 
     const handleStartEditing = () => {
@@ -189,7 +198,7 @@ const CreateWorkspacePage = () => {
                         <button
                             type="button"
                             className="link-button"
-                            onClick={() => navigate('/create-configuration', { state: { workspaceName, importedData, returnTo: '/create-workspace' } })}>
+                            onClick={() => setIsCreateConfigModalOpen(true)}> {/* CHANGED: Open Modal, do NOT navigate */}
                             Or, create a new configuration
                         </button>
                     </div>
@@ -231,6 +240,21 @@ const CreateWorkspacePage = () => {
                     </div>
                 )}
 
+                {/* NEW MODAL: Opens the CreateConfigurationPage inside here */}
+                {isCreateConfigModalOpen && (
+                    <div className="modal-overlay">
+                        <div className="modal-content" style={{ width: '90%', maxWidth: '900px', maxHeight: '80vh', overflowY: 'auto' }}>
+                            <CreateConfigurationPage
+                                isModal={true}
+                                workspaceNameProp={workspaceName}
+                                importedDataProp={importedData}
+                                onClose={() => setIsCreateConfigModalOpen(false)}
+                            />
+                        </div>
+                    </div>
+                )}
+
+                {/* Existing "Edit" modal remains here as well */}
                 {isEditModalOpen && (
                     <div className="modal-overlay">
                         <div className="modal-content" style={{width: '90%', maxWidth: '900px', maxHeight: '80vh'}}>
@@ -254,7 +278,7 @@ const CreateWorkspacePage = () => {
                                     );
                                 })}
                             </div>
-                            <div className="form-actions">
+                            <div className="form-actions" style={{marginTop: '0px'}}>
                                 <button type="button" className="secondary-button" onClick={() => setIsEditModalOpen(false)}>
                                     Cancel
                                 </button>
@@ -271,3 +295,4 @@ const CreateWorkspacePage = () => {
 };
 
 export default CreateWorkspacePage;
+

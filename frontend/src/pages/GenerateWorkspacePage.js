@@ -8,6 +8,11 @@ const GenerateWorkspacePage = () => {
     const location = useLocation();
     const importedData = location.state?.importedData || null;
 
+    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+    const [allAvailableMetrics, setAllAvailableMetrics] = useState([]);
+    const [editingMetrics, setEditingMetrics] = useState([]);
+
+
     const formFields = [
         { id: 'workspaceName', label: 'Workspace Name', type: 'text', placeholder: 'e.g., Support Bot Accuracy Test' },
         { id: 'description', label: 'Evaluation Goal / Description', type: 'text', placeholder: "e.g., 'Check for politeness and factual accuracy'" },
@@ -127,6 +132,63 @@ const GenerateWorkspacePage = () => {
         navigate('/evaluate', { state: { workspace: createdWorkspace, selectedMetrics: formattedMetrics, questionsAndAnswers: importedData?.entries } });
     };
 
+    const handleStartEditing = async () => {
+        try {
+            const res = await fetch('/api/metrics');
+            const data = await res.json();
+            setAllAvailableMetrics(data);
+            setEditingMetrics(Object.values(selectedMetrics));
+            setIsEditModalOpen(true);
+        } catch (err) {
+            alert("Failed to load metrics.");
+        }
+    };
+
+    const handleMetricEditToggle = (metric) => {
+        setEditingMetrics(prev => {
+            const exists = prev.some(m => m.id === metric.id);
+            return exists
+                ? prev.filter(m => m.id !== metric.id)
+                : [...prev, { ...metric, scale: metric.scale || '1-5' }];
+        });
+    };
+
+    const handleSaveAsNewConfiguration = async () => {
+        if (editingMetrics.length === 0) {
+            return alert("You must select at least one metric.");
+        }
+
+        const payload = {
+            ...formData,
+            configurationName: `${formData.workspaceName} - Custom Config`,
+            entries: importedData.entries,
+            metrics: editingMetrics.map((m, i) => ({
+                metricId: m.id,
+                scale: m.scale || "1-5",
+                position: i
+            }))
+        };
+
+        try {
+            const res = await fetch('/api/workspaces/with-new-configuration', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (!res.ok) throw new Error(await res.text());
+
+            const created = await res.json();
+            setCreatedWorkspace(created);
+            setIsEditModalOpen(false);
+            setShowSuccessModal(true);
+
+        } catch (err) {
+            alert(`Error: ${err.message}`);
+        }
+    };
+
+
     return (
         <MainLayout>
             <div className="page-container">
@@ -157,6 +219,20 @@ const GenerateWorkspacePage = () => {
                         </div>
 
                         {error && <p className="error-message">{error}</p>}
+
+                        {metrics.length > 0 && (
+                            <div className="metrics-header">
+                                <h3>Generated Metrics</h3>
+
+                                <button
+                                    type="button"
+                                    className="link-button"
+                                    onClick={handleStartEditing}
+                                >
+                                    Edit and Save as New
+                                </button>
+                            </div>
+                        )}
 
                         {metrics.length > 0 && (
                             <div className="metrics-grid">
@@ -193,6 +269,41 @@ const GenerateWorkspacePage = () => {
                         </div>
                     </form>
                 </div>
+
+                {isEditModalOpen && (
+                    <div className="modal-overlay">
+                        <div className="modal-content" style={{ width: '90%', maxWidth: '900px', maxHeight: '80vh' }}>
+                            <h3>Edit and Save as New Configuration</h3>
+                            <p>Select metrics for your custom configuration.</p>
+
+                            <div className="metrics-grid modal-grid" style={{ maxHeight: '50vh', overflowY: 'auto' }}>
+                                {allAvailableMetrics.map(metric => {
+                                    const isSelected = editingMetrics.some(m => m.id === metric.id);
+                                    return (
+                                        <div
+                                            key={metric.id}
+                                            className={`metric-card-lg ${isSelected ? 'selected' : ''}`}
+                                            onClick={() => handleMetricEditToggle(metric)}
+                                        >
+                                            <input type="checkbox" readOnly checked={isSelected} className="metric-checkbox" />
+                                            <div className="metric-card-content">
+                                                <h4>{metric.name}</h4>
+                                                <p>{metric.description}</p>
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+
+                            <div className="form-actions">
+                                <button type="button" className="secondary-button" onClick={() => setIsEditModalOpen(false)}>Cancel</button>
+                                <button type="button" className="primary-button" onClick={handleSaveAsNewConfiguration}>
+                                    Save and Create Workspace
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )}
 
                 {showSuccessModal && (
                     <div className="modal-overlay">

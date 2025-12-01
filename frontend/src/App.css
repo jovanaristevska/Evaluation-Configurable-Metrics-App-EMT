@@ -1,5 +1,6 @@
 
-/* --- Global Resets & Typography --- */
+
+
 :root {
     --primary-color: #007aff;
     --primary-hover-color: #0056b3;
@@ -25,22 +26,20 @@ body {
     color: var(--text-color);
 }
 
-/* --- Main Layout Container --- */
+
 .page-container {
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    min-height: 90vh;
-    padding: 2rem;
+    align-items: center;
+    padding: 0.5rem; /* very small padding */
 }
 
-/* --- Form & Card Container --- */
 .form-container {
     width: 100%;
     max-width: 700px;
     background-color: var(--white);
-    padding: 2.5rem;
+    padding: 2rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 }
@@ -49,24 +48,26 @@ body {
     font-size: 1.75rem;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 0.75rem;
+    /*margin-bottom: 0.75rem;*/
+    margin-bottom: 0rem;
+    margin-top: 0rem;
 }
 
 .form-subtitle {
     text-align: center;
     color: var(--text-light);
-    margin-bottom: 2.5rem;
+    margin-bottom: 0.5rem;
 }
 
-/* --- Form Elements --- */
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .form-group label {
     display: block;
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0rem;
+    margin-top: 1rem;
 }
 
 .form-group input,
@@ -86,13 +87,12 @@ body {
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
 }
 
-/* --- Buttons --- */
 .form-actions {
     display: flex;
     justify-content: flex-end;
     gap: 1rem;
-    margin-top: 2rem;
-    padding-top: 1.5rem;
+    margin-top: 0rem;
+    padding-top: 0rem;
     border-top: 1px solid #e9ecef;
 }
 
@@ -129,7 +129,6 @@ body {
     cursor: not-allowed;
 }
 
-/* --- Metric Cards --- */
 .metrics-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -158,11 +157,16 @@ body {
 .metric-card h4 { margin: 0 0 0.5rem; }
 .metric-card p { margin: 0; color: var(--text-light); font-size: 0.9rem; }
 
-/* --- Feedback & Spinner --- */
 .error-message { color: var(--error-color); font-weight: 600; }
 .success-message { color: var(--success-color); font-weight: 600; }
 
-.fetch-section { display: flex; align-items: center; gap: 1rem; margin: 1.5rem 0; }
+.fetch-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
 .spinner {
     border: 4px solid rgba(0, 0, 0, 0.1);
     width: 28px; height: 28px;
@@ -173,16 +177,14 @@ body {
 @keyframes spin { to { transform: rotate(360deg); } }
 
 
-/* --- STYLES FOR THE SCALE SELECTOR --- */
 
 .metric-card {
-    /* Add position relative to contain the scale selector if you use absolute positioning */
     position: relative;
-    padding-bottom: 4rem; /* Add padding to prevent content overlap */
+    padding-bottom: 4rem;
 }
 
 .scale-selector {
-    position: absolute; /* Position it at the bottom of the card */
+    position: absolute;
     bottom: 1rem;
     left: 1rem;
     right: 1rem;
@@ -191,7 +193,7 @@ body {
     justify-content: space-between;
     margin-top: 1rem;
     padding-top: 0.75rem;
-    border-top: 1px solid #eee; /* A subtle separator */
+    border-top: 1px solid #eee;
 }
 
 .scale-selector label {
@@ -207,10 +209,15 @@ body {
     border-radius: 4px;
     background-color: #fff;
     font-size: 0.875rem;
-    flex-grow: 1; /* Allow the select to take remaining space */
+    flex-grow: 1;
 }
 
-/* Stop the card's main click event from firing when interacting with the dropdown */
 .scale-selector select {
     pointer-events: auto;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }

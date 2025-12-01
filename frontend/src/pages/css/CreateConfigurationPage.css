@@ -20,17 +20,16 @@
 .create-workspace-container p {
     font-size: 1.1rem;
     color: #7f8c8d;
-    margin-bottom: 3rem;
+    margin-bottom: 0rem;
+    margin-top: 0rem;
 }
 
 .metrics-grid {
     display: grid;
     gap: 1.5rem;
-    /* Default to 4 columns on large screens */
     grid-template-columns: repeat(4, 1fr);
 }
 
-/* For tablets and smaller desktops, switch to 3 columns */
 @media (max-width: 1200px) {
     .metrics-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -119,7 +118,7 @@
 .form-actions {
     display: flex;
     justify-content: center;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 /* === Priority Setting Modal === */
@@ -198,4 +197,3 @@
     margin-top: 0;
     font-size: 1.5rem;
 }
-
