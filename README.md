@@ -2,7 +2,7 @@
 
 A full-stack web application for evaluating answers produced by Large Language Models (e.g. GPT, Gemini, Claude) using **configurable evaluation metrics**.
 
-The app is designed for domain experts — for example, doctors evaluating health-related answers. An expert uploads a JSON file containing health questions (e.g. *"Why does my head hurt?"*), the model that produced the answer, and the answer itself. The expert can then create a **workspace**, choose which evaluation **metrics** to apply (via a reusable **configuration**), and score each answer against those metrics. Existing workspaces can also be reused.
+The app is designed for domain experts — for example, doctors evaluating health-related answers. An expert uploads a JSON file containing health questions, the model that produced the answer, and the answer itself. The expert can then create a **workspace**, choose which evaluation **metrics** to apply (via a reusable **configuration**), and score each answer against those metrics. Existing workspaces can also be reused.
 
 All workspaces, configurations, metrics, questions, answers, and evaluations are persisted in a **PostgreSQL** database.
 
